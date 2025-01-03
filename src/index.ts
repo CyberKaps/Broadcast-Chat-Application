@@ -11,6 +11,11 @@ wss.on("connection", (socket) => {
 
     socket.on("message", (e) => {
         console.log("message received " + e.toString());
+
+        setTimeout(() => {
+            socket.send(e.toString() + ": sent from the server")
+        },1000);
+        
     })
 
 })
